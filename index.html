@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Duel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Auth Screen -->
+        <section id="auth-screen" class="screen active">
+            <h1>Math Duel</h1>
+            <div class="card">
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
+                <button id="btn-login" class="btn primary">Login</button>
+                <button id="btn-register" class="btn secondary">Register</button>
+                <hr>
+                <button id="btn-guest" class="btn alt">Play as Guest</button>
+            </div>
+            <div id="auth-error" class="error"></div>
+        </section>
+
+        <!-- Main Menu -->
+        <section id="menu-screen" class="screen">
+            <h1>Welcome, <span id="user-display"></span>!</h1>
+            <div class="card">
+                <button id="btn-start" class="btn success">Start Duel</button>
+                <button id="btn-leaderboard" class="btn warning">Leaderboard</button>
+                
+                <!-- Guest Link Section -->
+                <div id="guest-upgrade-container" class="upgrade-card" style="display: none;">
+                    <h3>Save your scores permanently!</h3>
+                    <input type="email" id="upgrade-email" placeholder="Email">
+                    <input type="password" id="upgrade-password" placeholder="Password">
+                    <button id="btn-upgrade-account" class="btn secondary">Link Account</button>
+                    <div id="upgrade-error" class="error"></div>
+                </div>
+
+                <button id="btn-logout" class="btn danger">Logout</button>
+            </div>
+        </section>
+
+        <!-- Game Screen -->
+        <section id="game-screen" class="screen">
+            <div class="header-bar">
+                <div class="stat">Score: <span id="score">0</span></div>
+                <div class="stat">Lives: <span id="lives">❤️❤️❤️</span></div>
+            </div>
+            <div class="question-container">
+                <h2 id="question-text">5 + 5</h2>
+                <div class="timer-bar-container">
+                    <div id="timer-bar"></div>
+                </div>
+            </div>
+            <div class="choices-container">
+                <button class="choice-btn" id="choice-0" data-index="0"></button>
+                <button class="choice-btn" id="choice-1" data-index="1"></button>
+            </div>
+        </section>
+
+        <!-- Game Over Screen -->
+        <section id="game-over-screen" class="screen">
+            <h1>Game Over</h1>
+            <div class="card">
+                <h2>Final Score: <span id="final-score"></span></h2>
+                <button id="btn-restart" class="btn success">Play Again</button>
+                <button id="btn-menu" class="btn primary">Main Menu</button>
+            </div>
+        </section>
+
+        <!-- Leaderboard Screen -->
+        <section id="leaderboard-screen" class="screen">
+            <h1>Leaderboard</h1>
+            <div class="card">
+                <div class="tab-container">
+                    <button id="tab-alltime" class="tab-btn active">All Time</button>
+                    <button id="tab-today" class="tab-btn">Today</button>
+                </div>
+                <ul id="leaderboard-list"></ul>
+                <button id="btn-back-menu" class="btn primary">Back</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main Module -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
